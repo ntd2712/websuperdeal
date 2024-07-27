@@ -1,0 +1,23 @@
+const express = require("express");
+var route = express.Router();
+route.use(express.json());
+const userController=require("../controllers/userConntroller");
+//const middlewareController=require("../controllers/middlewareController");
+// router.get("/",userController.getAllUser);
+// router.get("/:email/:password",userController.login)
+route.get("/login/id/:phone/:password",userController.login);
+route.get("/login/admin/id/:phone/:password",userController.loginAdmin);
+route.get("/user/getall",userController.get_all);
+route.get("/user/getalluser",userController.get_all_user);
+route.post("/user/register",userController.add);
+route.post("/user/adminKH",userController.addAdKH);
+//route.get("/admin/search",userController.searchUserByName);
+route.get("/admin/user",userController.get_all);
+route.put("/admin/user/update",userController.updateRU);
+route.put("/user/update/company",userController.updateCU);
+route.get("/user/iddn/:userID",userController.getIDDN);
+route.get("/user/idkh/:userID",userController.getIDKH);
+route.put("/user/status/update",userController.updateUserStatus);
+route.get("/user/search/:phone",userController.searchPhone);
+route.get("/user/role/:userID",userController.getIDRole);
+module.exports=route;

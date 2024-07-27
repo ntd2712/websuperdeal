@@ -1,0 +1,9 @@
+.gender_male_register{
+    display: flex;
+
+}
+#male{
+    height: 20px;
+    width: 10%;
+    margin-right: 10px;
+}

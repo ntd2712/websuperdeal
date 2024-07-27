@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ogani | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+     <style>
+         .nice-select form-control{
+            display: none;
+        }
+        #voucherCategoryID{
+            display: block !important;
+        }
+       
+     </style>
+     <link rel="stylesheet" href="css/voucher.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/register.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/login.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+   
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="header__top__left">
+                            <ul>
+                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                                <li>Free Shipping for all Order of $99</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="header__top__right">
+                            <div class="header__top__right__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+
+                            </div>
+
+                            <div class="header__top__right__language">
+                                <img src="img/language.png" alt="">
+                                <div>English</div>
+                                <span class="arrow_carrot-down"></span>
+                                <ul>
+                                    <li><a href="#">Spanis</a></li>
+                                    <li><a href="#">English</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__top__right__language">
+                                <a href="./login.html" style="color: black;"><i class="fa fa-user"></i> Login | </a>
+                                <a href="./register.html" style="color: black;">Register</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Thêm voucher</h2>
+                        <div class="home_register">
+                            <a href="managaVoucher.html">Home</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+    <!-- Contact Form Begin -->
+    <div class="contact-form spad">
+        <div class="container">
+            <form class="sign-up-form" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <label for="voucherID">Mã voucher <span>(*)</span></label>
+                        <input type="text" class="form-control" id="voucherID" name="voucherID" required>
+                        <label for="voucherCategory">Loại voucher<span>(*)</span></label>
+                        <select name="voucherCategoryID" id="voucherCategoryID" class="form-control" ></select>
+                        <label for="voucherName">Tên voucher <span>(*)</span></label>
+                        <input type="text" class="form-control" id="voucherName" name="voucherName" required>
+                        <label for="price">Giá<span>(*)</span></label>
+                        <input type="text" class="form-control" id="price" name="price" required>
+                        <label for="promotional">Giá giảm<span>(*)</span></label>
+                        <input type="text" class="form-control" id="percent" name="percent" required>
+                        <label for="percent">Giá khuyén mãi<span>(*)</span></label>
+                        <input type="text" class="form-control" id="promotional" name="promotional" required>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <label for="quantity">Số lượng<span>(*)</span></label>
+                        <input type="text" class="form-control" id="quantity" name="quantity" required>
+                        <label for="quantity">Đánh giá<span>(*)</span></label>
+                        <input type="text" class="form-control" id="rating" name="rating" required>
+                        <label for="description">Mô tả <span>(*)</span></label>
+                        <input type="text" class="form-control" id="description" name="description" autocomplete="off" required>
+                        <label for="startDate">Ngày bắt đầu<span>(*)</span></label>
+                        <input type="date" class="form-control" id="startDate" name="startDate" required>
+                        <label for="endDate">Ngày kết thúc<span>(*)</span></label>
+                        <input type="date" class="form-control" id="endDate" name="endDate" required>
+                        <label for="statusvoucher">Trạng thái<span>(*)</span></label>
+                        <input type="text" class="form-control" id="statusvoucher" name="statusvoucher" required>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="voucherImageUrl">Hình <span>(*)</span></label>
+                        <input type="file" class="form-control" id="voucherImageUrl" name="voucherImageUrl" multiple required>  
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <div>
+                        <button type="button" class="site-btn" onclick="themhinhvoucher()">Thêm</button>
+                    </div>
+                </div>
+        </div>
+        </form>
+    </div>
+    </div>
+    <!-- Contact Form End -->
+    <!-- Footer Section Begin -->
+    <footer class="footer spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__about__logo">
+                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        </div>
+                        <ul>
+                            <li>Address: 60-49 Road 11378 New York</li>
+                            <li>Phone: +65 11.188.888</li>
+                            <li>Email: hello@colorlib.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <h6>Useful Links</h6>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">About Our Shop</a></li>
+                            <li><a href="#">Secure Shopping</a></li>
+                            <li><a href="#">Delivery infomation</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Our Sitemap</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">Who We Are</a></li>
+                            <li><a href="#">Our Services</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Innovation</a></li>
+                            <li><a href="#">Testimonials</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__widget">
+                        <h6>Join Our Newsletter Now</h6>
+                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <form action="#">
+                            <input type="text" placeholder="Enter your mail">
+                            <button type="submit" class="site-btn">Subscribe</button>
+                        </form>
+                        <div class="footer__widget__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__copyright">
+                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+     
+    <script src="js/bootstrap.min.js"></script>
+    <!-- <script src="js/jquery.min.js"></script> -->
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="./API/user/voucher/themvoucher.js"></script>
+    
+
+
+</body>
+
+</html>

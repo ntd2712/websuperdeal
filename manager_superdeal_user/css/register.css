@@ -1,0 +1,43 @@
+.home_register{
+    display: inline-block;
+	font-size: 16px;
+	color: #ffffff;
+	margin-right: 20px;
+	position: relative;
+}
+a{
+    font-size: 16px;
+	color: #ffffff;
+}
+.home_register::after{
+    position: absolute;
+	right: -12px;
+	top: 13px;
+	height: 1px;
+	width: 10px;
+	background: #7b490a;
+	color: #7b490a;
+	content: "";
+}
+.login_register{
+    display: inline-block;
+	font-size: 16px;
+	color: #ffffff;
+}
+.home_register a span{
+    margin-left: 15px;
+}
+label>span{
+    color: red;
+}
+.gender_male_register{
+	display: flex;
+
+}
+#male{
+	height: 20px;
+	width: 10%;
+}
+.gender_female_register{
+	display: flex;
+}

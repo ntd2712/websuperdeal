@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>File Upload Test</title>
+</head>
+<body>
+  <h1>File Upload</h1>
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <label for="avatar">Select an image file:</label>
+    <input type="file" id="avatar" name="avatar" accept="image/*">
+    <button type="submit">Upload</button>
+  </form>
+</body>
+</html>
