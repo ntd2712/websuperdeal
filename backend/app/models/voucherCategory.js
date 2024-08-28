@@ -45,7 +45,7 @@ voucherCategory.update=function(data,result){
 voucherCategory.delete=function(id,result){
     db.query("DELETE FROM voucher_category WHERE voucherCategoryID=?",id,function(err){
         if(err){
-            result(null);
+            result(err);
         }else{
             result("Xóa dữ liệu thành công");
         }

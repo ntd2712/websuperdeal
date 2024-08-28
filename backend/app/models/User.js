@@ -117,19 +117,30 @@ user.update=function(data,result){
   })
 }
 user.updateToCompany=function(data,result){
-  console.log(data);
   db.query("UPDATE user SET roleID=?,companyID=? WHERE userID=?",[
     data.roleID,
     data.companyID,
     data.userID
   ],function(err,user){
-    console.log(err);
       if(err){
           result(null);
       }else{
           result(data);
       }
   })
+}
+user.updateDN = function(data, result) {
+  db.query("UPDATE user SET name=?, address=? WHERE userID=?",[ 
+    data.name, 
+    data.address, 
+    data.userID 
+  ], function(err, user) {
+    if (err) {
+      result(err);
+    } else{
+      result(data);
+    }
+  });
 }
 user.updateUStatus=function(data,result){
   db.query("UPDATE user SET status=? WHERE userID=?",[data.status,data.userID],function(err,user){

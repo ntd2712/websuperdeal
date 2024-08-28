@@ -14,6 +14,7 @@ route.post("/user/adminKH",userController.addAdKH);
 //route.get("/admin/search",userController.searchUserByName);
 route.get("/admin/user",userController.get_all);
 route.put("/admin/user/update",userController.updateRU);
+route.put("/admin/user/updateDN",userController.updateDN);
 route.put("/user/update/company",userController.updateCU);
 route.get("/user/iddn/:userID",userController.getIDDN);
 route.get("/user/idkh/:userID",userController.getIDKH);

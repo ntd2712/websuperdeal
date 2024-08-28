@@ -10,7 +10,8 @@ async function hienchitietbaiviet(){
           console.log(dataNew);
           document.getElementById("newID").value=dataNew.newID;
           document.getElementById("title").value=dataNew.title;
-          document.getElementById("datePost").value=dataNew.datePost;
+          const datePost = new Date(dataNew.datePost);
+          document.getElementById("datePost").value = datePost.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
           document.getElementById("content").value=dataNew.content;
           const imglist =document.getElementById("imglist");
           imglist.innerHTML='';

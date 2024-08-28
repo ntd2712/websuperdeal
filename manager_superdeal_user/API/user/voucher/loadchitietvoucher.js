@@ -162,6 +162,26 @@ async function loadvoucherdetails() {
     console.log(data);
     const newItem = document.getElementById("voucherdetails");
     const newPercent=data.percent*100;
+    const startDate = new Date(data.startDate);
+    const endDate = new Date(data.endDate);
+    const remainingDays = Math.round((endDate - startDate) / (1000 * 60 * 60 * 24));
+    
+
+    const countdownElement = document.getElementById("countdown");
+    setInterval(() => {
+      const now = new Date().getTime();
+      const timeLeft = endDate.getTime() - now;
+
+      if (timeLeft <= 0) {
+        countdownElement.textContent = "Hết hạn";
+      } else {
+        const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    countdownElement.textContent = `Thời hạn sử dung voucher còn: ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      }
+    }, 1000);
    
     newItem.innerHTML = `
                         <h3>${data.nameVoucher}</h3>
@@ -170,15 +190,15 @@ async function loadvoucherdetails() {
   ${Intl.NumberFormat('vi-VN').format(Math.round(data.promotionalPrice / 1000) * 1000)}
   <span style="vertical-align: super; font-size: 0.8em;">đ</span></div>
 
-                        <span style="background-color:#ed1c24;color:white;width:45px;height:25px;text-align:center;border-radius:7px;border:1px solid #9d2124">-${
+                        <span style="background-color:#ed1c24;color:white;width:45px;height:25px;text-align:center;border-radius:7px;border:1px solid #fff">-${
                           newPercent
                         }%</span>
                         </div>
-                        <span style="text-decoration: line-through;margin-left:7%;line-height: 1.0;display:block;font-size:20px;margin-bottom:10px">${Intl.NumberFormat(
+                        <span style="display:flex;font-size:20px">Giá gốc: <span style="text-decoration: line-through;margin-left:1%;line-height: 1.0;display:block;font-size:20px">${Intl.NumberFormat(
                           "vi-VN"
                         ).format(
                           data.price
-                        )}<span style="vertical-align: super; font-size: 0.8em;">đ</span></span>
+                        )}<span style="vertical-align: super; font-size: 0.8em;">đ</span></span></span>
                        <div class="product__details__quantity">
                             <div class="quantity" style="margin-left:6%">
                                  <button class="quantity-btn decrement">-</button>
@@ -189,31 +209,98 @@ async function loadvoucherdetails() {
                             </div>
                              <a href="#" class="primary-btn" onclick="themgiohang()" style="width:180px;margin-left:5%; border-radius:10px; background-color:#9d2124;text-align:center; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);">Thêm giỏ hàng</a>
                         </div>
-                         <p style="margin-top:10px">Thời hạn sử dung voucher:${
-                           data.startDate
-                         } đến ${data.endDate}</p>  
+                         <p style="margin-top:10px">Thời hạn sử dung voucher còn: ${remainingDays} ngày</p>
+                         <p id="countdown"></p>
+                         <p style="margin-top:10px">${data.description}</p> 
           `;
           const minus=document.querySelector('.quantity-btn.decrement');
           const plus=document.querySelector('.quantity-btn.increment');
           const newquantity=document.getElementById("number");
+       
+          let currentQuantity = data.quantity; // Tạo biến mới để chứa giá trị của data.quantity
+
+          newquantity.textContent = 2;
+        
+         
+          
           plus.addEventListener('click', () => {
-            if (parseInt(newquantity.textContent) < data.quantity) {
-              newquantity.textContent++;
+            if (parseInt(newquantity.textContent) < 2) {
+              newquantity.textContent = parseInt(newquantity.textContent) + 1;
+              localStorage.setItem("new_quantity", newquantity.textContent);
             }
+            setTimeout(function() {
+              console.log(localStorage.getItem("new_quantity"));
+            }, 100);
           });
           
           minus.addEventListener('click', () => {
             if (parseInt(newquantity.textContent) > 1) {
-              newquantity.textContent--;
+              newquantity.textContent = parseInt(newquantity.textContent) - 1;
+              localStorage.setItem("new_quantity", newquantity.textContent);
             }
+            setTimeout(function() {
+              console.log(localStorage.getItem("new_quantity"));
+            }, 100);
           });
-          
+          localStorage.setItem("new_quantity", newquantity.textContent);
+          setTimeout(function() {
+            console.log(localStorage.getItem("new_quantity"));
+          }, 100);
          
   } catch (error) {
     console.log(error);
   }
 }
 
+async function loadchitietbaiviet(){
+  try {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const aray = urlParams.get("array");
+    const voucherID = aray;
+    const response=await fetch(`http://localhost:3000/admin/new/getidkh/${voucherID}`);
+    const data=await response.json();
+    const chitietbaiviet = document.getElementById("chitietbaiviet");
+    const tabDesc = chitietbaiviet.querySelector(".product__details__tab__desc");
+   
+    tabDesc.innerHTML = `
+      <div>
+      <h3>${data.title.toUpperCase()}</h3>
+      <p style="padding-top:5px">${new Date(data.datePost).toLocaleDateString('vi-VN')}</p>
+      <p style="line-height:normal;text-align: justify;">${data.content}</p>
+      </div>
+    `;
+    const newID = data.newID; // giả sử newID là thuộc tính của dữ liệu trả về
+    return newID;
+  } catch (error) {
+    console.log(error);
+  }
+    
+}
+async function loadchitiethinhbaiviet(){
+  try {
+    const newID = await loadchitietbaiviet();
+    const response=await fetch(`http://localhost:3000/admin/newimage/getid/${newID}`);
+    const data=await response.json();
+    // console.log(data);
+    const imgListNew=document.getElementById("dshinhbaiviet");
+    imgListNew.innerHTML = "";
+    data.forEach((item,index)=>{
+      const img = document.createElement("img");
+      img.src = `../backend/uploads/newimage/${item.newImageUrl}`;
+      img.alt = `Image ${item.newImageUrl}`;
+      img.id = `img_news_all_${index}`;
+      img.style.width="2000px";
+      img.style.marginLeft="20px";
+      img.style.marginTop="50px";
+      imgListNew.appendChild(img);
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+loadchitiethinhbaiviet();
 loadvoucherdetails();
 loaddetailall();
 loadchitiethinhvoucher();
+loadchitietbaiviet()

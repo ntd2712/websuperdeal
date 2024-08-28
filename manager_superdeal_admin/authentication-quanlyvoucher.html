@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Modernize Free</title>
+  <title>HOTDEAL DASHBOARD</title>
   <link rel="shortcut icon" type="image/png" href="images/logos/logo_hotdeal.png" />
   <link rel="stylesheet" href="css/styles.min.css" />
   <link rel="stylesheet" href="css/search.css">
@@ -32,7 +32,7 @@
           <ul id="sidebarnav">
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">Home</span>
+              <span class="hide-menu">Trang chủ</span>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="authentication-admin.html" aria-expanded="false" style="background-color: #9d2124;">
@@ -41,17 +41,41 @@
                 </span>
                 <span class="hide-menu" >Quản lý Doanh Nghiệp</span>
               </a>
-              <a class="sidebar-link" href="authentication-quanlyvoucher.html" aria-expanded="false" style="background-color: #9d2124;">
+              <a class="sidebar-link" href="authentication-quanlykhachhang.html" aria-expanded="false" style="background-color: #9d2124;">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
                 <span class="hide-menu" >Quản lý Khách Hàng</span>
               </a>
-              <a class="sidebar-link" href="authentication-quanlyslider.html" aria-expanded="false" style="background-color: #9d2124;">
+              <!-- <a class="sidebar-link" href="authentication-quanlyslider.html" aria-expanded="false" style="background-color: #9d2124;">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
                 <span class="hide-menu" >Quản lý Slider</span>
+              </a> -->
+              <!-- <a class="sidebar-link" href="authentication-quanlylogo.html" aria-expanded="false" style="background-color: #9d2124;">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu" >Quản lý Logo</span>
+              </a> -->
+              <a class="sidebar-link" href="authentication-quanlyloai.html" aria-expanded="false" style="background-color: #9d2124;">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu" >Quản lý Loại</span>
+              </a>
+              <a class="sidebar-link" href="authentication-quanlyhinh.html" aria-expanded="false" style="background-color: #9d2124;">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu" >Danh sách hình voucher</span>
+              </a>
+              <a class="sidebar-link" href="authentication-quanlyvoucher.html" aria-expanded="false" style="background-color: #9d2124;">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu" >Danh sách voucher</span>
               </a>
             </li>
             </ul>
@@ -81,32 +105,28 @@
             <li class="nav-item">
               <div class="mt-4">
                 <div class="row mx-2">
+                  
                   <div class="col-md-4">
                     <div class="d-flex" style="width: 400px;">
-                      <a style="background-color: #9d2124;" onclick="clickButtonThemSlider()" class="btn btn-info">Thêm Slider</a>
+                      <a style="background-color: #9d2124;" onclick="clickButtonPageUpdateUser()" class="btn btn-info">Cập nhật thông tin voucher</a>
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <div class="d-flex" style="width: 400px;">
-                      <a style="background-color: #9d2124;" onclick="clickButtonCapnhatSlider()" class="btn btn-info">Cập nhật slider</a>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="d-flex" style="width: 400px;">
+                    <!-- <div class="d-flex" style="width: 400px;">
                       <input id="submit" name="submit" type="submit" class="btn btn-info" style="background-color: #9d2124;"
-                        onclick="if(confirm('Bạn có chắc muốn khóa')) { khoaSlider(); } return false;"
+                        onclick="if(confirm('Bạn có chắc muốn khóa')) { khoaNguoidung(); } return false;"
                         value=" Khoá người dùng" />
-                    </div>
+                    </div> -->
                   </div>
-                  <!-- <div class="col-md-4">
-                    <div class="search-container">
-                      <form action="/action_page.php" method="POST" class="sign-up-form">
-                        <input type="text" placeholder="Search.." name="search" id="search">
+                  <div class="col-md-4">
+                    <div class="search-container" >
+                      <form action="/action_page.php" method="POST" style="display: flex;">
+                        <input type="text" placeholder="Search.." name="search">
                         <button type="submit" style="border-color: white; background-color: #9d2124; height: 30px; width: 40px;"><i class="gg-search" style="border-color: white;"></i></button>
                       </form>
                     </div>
                     
-                  </div> -->
+                  </div>
                 </div>
             </li>
           </ul>
@@ -119,19 +139,16 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-user fs-6"></i>
-                      <p class="mb-0 fs-3" id="ten_nv">My Profile</p>
+                    <a href="index.html" class="d-flex align-items-center gap-2 dropdown-item" id="login">
+                      <p class="mb-0 fs-3">Đăng nhập </p>
                     </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-mail fs-6"></i>
-                      <p class="mb-0 fs-3">My Account</p>
+                    <a href="index.html" class="d-flex align-items-center gap-2 dropdown-item" id="name_logout">
+                        <p class="mb-0 fs-3">Đăng xuất </p>
+                      </a>
+                    <a href="#" class="d-flex align-items-center gap-2 dropdown-item">
+                      <p class="mb-0 fs-3" id="name_login">Thông tin cá nhân</p>
                     </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-list-check fs-6"></i>
-                      <p class="mb-0 fs-3">My Task</p>
-                    </a>
-                    <a href="index.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                    
                   </div>
                 </div>
               </li>
@@ -147,7 +164,7 @@
         </div>
 
         <div class="pd-20">
-          <h4 class="text-blue h4" style="margin-top: 20px;">Thông tin người dùng</h4>
+          <h4 class="text-blue h4" style="margin-top: 20px;">Thông tin voucher</h4>
         </div>
 
         <div class="pb-20">
@@ -155,8 +172,18 @@
             <table class="data-table table stripe hover nowrap table-nvqldh">
               <thead>
                 <tr>
-                  <th class="table-plus datatable-nosort">Mã slider</th>
-                  <th>Hình slider</th>
+                  <th class="table-plus datatable-nosort">Mã voucher</th>
+                  <th>Loại voucher</th>
+                  <th>Tên voucher</th>
+                  <th>Giá</th>
+                  <th>Giảm giá</th>
+                  <th>Giá khuyến mãi</th>
+                  <th>Số lượng</th>
+                  <th>Đánh giá</th>
+                  <th>Mô tả</th>
+                  <th>Ngày bắt đầu</th>   
+                  <th>Ngày kết thúc</th>
+                  <th>Trạng thái</th>
                 </tr>
               </thead>
               <tbody>
@@ -165,6 +192,11 @@
             </table>
 
           </form>
+          <div class="pagination" style="margin-left: 40%;">
+            <button class="prev" style="margin-right: 2%;width: 60px;height: 30px;background-color: #9d2124;color: white;">Trước</button>
+            <span class="page-info" style="font-size: 16px;">Trang 1/1</span>
+            <button class="next" style="margin-left: 2%;width: 60px;height: 30px;background-color: #9d2124;color: white;">Sau</button>
+          </div>
         </div>
       </div>
       <!--  ------------------------------------------------------------- -->
@@ -181,20 +213,11 @@
   <script src="libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="libs/simplebar/dist/simplebar.js"></script>
   <script src="js/dashboard.js"></script>
-  <script src="./API/admin/showSlider.js"></script>
+  <script src="../manager_superdeal_user/js/my.js"></script>
   <!-- <script src="../../javascript/admin/hienNhanVien.js"></script>
   <script src="../../javascript/admin/themnv.js"></script>
   <script src="../../javascript/btnClick.js"></script> -->
-  
-  <!-- <script>
-    const form = document.querySelector('.sign-up-form');
-    const button = form.querySelector('button');
-
-    button.addEventListener('click', function (event) {
-        event.preventDefault(); // ngăn chặn sự kiện mặc định của form
-        getDataTim(); // gọi hàm xử lý submit form
-    });
-</script> -->
+  <script src="API/admin/voucher/hienvoucher.js"></script>
   <script>
     document.getElementById("ten_nv").innerHTML = localStorage.getItem("name");
   </script>

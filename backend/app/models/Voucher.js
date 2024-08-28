@@ -13,7 +13,7 @@ const Voucher=function(voucher){
     this.startDate=voucher.startDate;
     this.endDate=voucher.endDate;
     this.statusvoucher=voucher.statusvoucher;
-    this.cartID=voucher.cartID
+   
 }
 Voucher.getAll=function(result){
     db.query("SELECT*From voucher join user on voucher.userID=user.userID join voucher_category on voucher.voucherCategoryID=voucher_category.voucherCategoryID",function(err,voucher){
@@ -25,8 +25,8 @@ Voucher.getAll=function(result){
         }
     });
 };
-Voucher.getAll=function(result){
-    db.query("SELECT*From voucher join user on voucher.userID=user.userID join voucher_category on voucher.voucherCategoryID=voucher_category.voucherCategoryID",function(err,voucher){
+Voucher.getAllLimit8=function(result){
+    db.query("SELECT*From voucher join user on voucher.userID=user.userID join voucher_category on voucher.voucherCategoryID=voucher_category.voucherCategoryID limit 8",function(err,voucher){
         if(err){
             result(err);
         }
@@ -47,7 +47,7 @@ Voucher.create=function(data, result){
 Voucher.getById=function(voucherID,result){
     db.query("SELECT * FROM voucher join user on voucher.userID=user.userID join voucher_category on voucher.voucherCategoryID=voucher_category.voucherCategoryID WHERE user.userID=?",voucherID,function(err,voucher){
         if(err){
-            result(null);
+            result(err);
         }else{
             result(voucher);
         }
@@ -81,16 +81,50 @@ Voucher.delete=function(id, result){
     });
 };
 
-Voucher.timTheoTen=function(nameVoucher,result){
-    db.query("SELECT * FROM `voucher` JOIN voucher_image on voucher.voucherID=voucher_image.voucherID JOIN voucher_category on voucher.voucherCategoryID=voucher_category.voucherCategoryID WHERE voucher.nameVoucher LIKE ?",`%${nameVoucher}%`,function(err,voucher){
+Voucher.timTheoTen = function(nameVoucher, result) {
+    db.query("SELECT * FROM `voucher` JOIN voucher_category on voucher.voucherCategoryID=voucher_category.voucherCategoryID WHERE voucher.nameVoucher LIKE ?", `%${nameVoucher}%`, function(err, voucher) {
+      if (err) {
+        result(err);
+      } else {
+        result(voucher);
+      }
+    })
+  }
+Voucher.updateVoucher=function(data,result){
+    db.query("UPDATE voucher SET nameVoucher=?,price=?,percent=?,promotionalPrice=?,quantity=?,description=?,startDate=?,endDate=? WHERE voucherID=?",[
+        data.nameVoucher,
+        data.price,
+        data.percent,
+        data.promotionalPrice,
+        data.quantity,
+        data.description,
+        data.startDate,
+        data.endDate,
+        data.voucherID
+    ],function(err,voucher){
         if(err){
-            result(null);
+            result(err);
+        }else{
+            result(data);
+        }
+    })
+}
+Voucher.updateStatusVoucher=function(data,result){
+    db.query("UPDATE voucher SET statusvoucher=? WHERE voucherID=?",[data.statusvoucher,data.voucherID],function(err,user){
+        if(err){
+          result(err);
+        }else{
+          result(data);
+        }
+      })
+}
+Voucher.getAllVoucherTheoDanhmuc=function(voucherCategory,result){
+    db.query("SELECT * FROM voucher join voucher_category on voucher.voucherCategoryID=voucher_category.voucherCategoryID where voucher_category.nameVoucherCategory=?",voucherCategory,function(err,voucher){
+        if(err){
+            result(err);
         }else{
             result(voucher);
         }
     })
-}
-Voucher.update=function(data,result){
-    db.query("UPDATE voucher SET nameVoucher=?")
 }
 module.exports=Voucher;

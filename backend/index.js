@@ -16,6 +16,9 @@ const newImageRouter=require("./app/routers/newImageRouter");
 const itemCartRouter=require("./app/routers/itemCartRouter");
 const cartRouter=require("./app/routers/cartRouter");
 const orderRouter=require("./app/routers/orderRouter");
+const orderDetailsRouter=require("./app/routers/orderDetailsRouter");
+const paymentRouter=require("./app/routers/paymentRouter");
+
 require("dotenv").config();
 // const multer = require('multer');
 // const fsExtra=require('fs-extra');
@@ -42,6 +45,7 @@ app.use(express.json());
 var bodyParser=require('body-parser');
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json())
+
 
 
 // const storage = multer.diskStorage({
@@ -74,7 +78,10 @@ app.use("/",voucherRouter);
 app.use("/",newImageRouter);
 app.use("/",itemCartRouter);
 app.use("/",cartRouter);
-app.use("/",orderRouter)
+app.use("/",orderRouter);
+app.use("/",orderDetailsRouter);
+app.use("/",paymentRouter);
+
 //app.use("/xdhotdeal/user",userRouter);
 app.listen(3000,()=>{
     console.log("sever is running");

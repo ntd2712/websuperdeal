@@ -10,6 +10,11 @@ exports.get_id=function(req,res){
         res.send(response);
     });
 };
+exports.get_id_kh=function(req,res){
+    New.getByIdNewKH(req.params.voucherID,function(response){
+        res.send(response);
+    });
+};
 exports.get_id_details=function(req,res){
     New.getByIdDetails(req.params.newID,function(response){
         res.send(response);
@@ -23,7 +28,7 @@ exports.add=async function(req,res){
     });
 };
 exports.remove=function(req,res){
-    var id=req.params.newID;
+    var id=req.params.voucherID;
     New.delete(id, function(response){
         res.send(response);
     });

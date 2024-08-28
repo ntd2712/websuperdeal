@@ -21,7 +21,7 @@ exports.add=function(req,res){
     });
 };
 exports.remove=function(req,res){
-    var id=req.params.newImageID;
+    var id=req.params.newID;
     NewImage.delete(id, function(response){
         res.send(response);
     });

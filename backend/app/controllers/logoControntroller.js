@@ -6,7 +6,7 @@ exports.get_all=function(req,res){
     });
 };
 exports.get_id=function(req,res){
-    Logo.getById(req.params.companyID,function(response){
+    Logo.getById(req.params.companyName,function(response){
         res.send(response);
     });
 };

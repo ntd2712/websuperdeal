@@ -42,7 +42,7 @@ VoucherImage.getAllById=function(voucherID,result){
     });
 };
 VoucherImage.delete=function(id, result){
-    db.query("DELETE FROM voucher_image WHERE voucherImageID=?",id,function(err,voucherimage){
+    db.query("DELETE FROM voucher_image WHERE voucherID=?",id,function(err,voucherimage){
         if(err){
             result(null);
         }else{

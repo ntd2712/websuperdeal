@@ -76,6 +76,12 @@ exports.updateCU=function(req,res){
       res.send(response);
   });
 };
+exports.updateDN=function(req,res){
+  var data=req.body;
+  User.updateDN(data, function(response){
+      res.send(response);
+  });
+};
 exports.updateRU=function(req,res){
   var data=req.body;
   User.update(data, function(response){
