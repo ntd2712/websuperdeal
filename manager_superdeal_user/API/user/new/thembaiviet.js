@@ -1,14 +1,14 @@
 async function thembaiviet(){
     try {
         const queryString = window.location.search;
-          const urlParams = new URLSearchParams(queryString);
-          const aray = urlParams.get('array');
-          const voucherID = aray;
-    const newID =document.getElementById("newID").value;
+        const urlParams = new URLSearchParams(queryString);
+        const aray = urlParams.get('array');
+        const voucherID = aray;
+        const newID =document.getElementById("newID").value;
+        const title=document.getElementById("title").value;
     // const newImageUrl=document.getElementById("newImageUrl").files[0];
-    const title=document.getElementById("title").value;
-    const datePost=document.getElementById("datePost").value;
-    const content=document.getElementById("content").value;
+        const datePost = new Date().toISOString().split('T')[0];
+        const content=document.getElementById("content").value;
     // const formData=new FormData();
     // formData.append("newID",newID);
     // formData.append("newImageUrl",newImageUrl);

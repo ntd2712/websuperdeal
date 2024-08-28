@@ -16,7 +16,7 @@ var route = express.Router();
 route.use(express.json());
 
 route.get("/admin/logo/getall",logoController.get_all);
-route.get("/admin/logo/getid/:companyID",logoController.get_id);
+route.get("/admin/logo/getid/:companyName",logoController.get_id);
 route.post("/admin/logo/add",upload.single('logoImageUrl'),logoController.add);
 route.put("/admin/logo/update", upload.single('logoImageUrl'), logoController.update);
 route.delete("/admin/logo/delete/:logoID",logoController.remove);

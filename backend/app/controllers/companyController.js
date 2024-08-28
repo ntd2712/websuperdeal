@@ -17,3 +17,15 @@ exports.get_id=function(req,res){
         res.send(response);
     });
 };
+exports.get_idcompany_user=function(req,res){
+    Company.getByCompanyForUser(req.params.userID,function(response){
+        res.send(response);
+        
+    });
+};
+exports.updateCompany=function(req,res){
+    var data=req.body;
+    Company.updateCompany(data, function(response){
+        res.send(response);
+    });
+  };

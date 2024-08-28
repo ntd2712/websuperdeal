@@ -24,12 +24,14 @@ async function registerKH() {
             err[i].style.color = "red";
             err[i].style.fontSize="14px";
           }
-          if (phone.length === 10 && (phone.startsWith("078") || phone.startsWith("070") || phone.startsWith("079") || phone.startsWith("077") || phone.startsWith("076") || phone.startsWith("090") || phone.startsWith("093") || phone.startsWith("089"))){
+          if (phone.length === 10 && (phone.startsWith("078") || phone.startsWith("070") || phone.startsWith("079") || phone.startsWith("077") || phone.startsWith("076") || phone.startsWith("090") || phone.startsWith("093") || phone.startsWith("089")|| phone.startsWith("091"))){
             errPhone.innerHTML="";
+        }else if(phone.length===phone.length){
+            errPhone.innerHTML="Số điện thoại không hợp lệ! Vui lòng nhập số điện thoại";
+            return;  
         }else{
             errPhone.innerHTML="Số điện thoại không hợp lệ! Vui lòng nhập số điện thoại";
-            return; 
-            
+            return;
         }
         if(password.length<=7||password===""){
             errPassword.innerHTML="Vui lòng nhập mật khẩu từ 8 kí tự trở lên";
@@ -307,21 +309,9 @@ async function updateUserToDN(){
         });
         const data = await response.json();
         console.log(data);
-        if(data!=null){
-            window.location.href="profileDN.html";
-        }else{
-            alert("lol");
-        }
-    } catch (error) {
-        console.log(error);
-    }
-    
-}
-async function themhinhlogo(){
-    try {
-        const companyID= await registerCompany();
+        //------------------------------------------------------
         const logoImageUrl=document.getElementById("logoImageUrl");
-        for(let i=0; i<newImageUrl.files.length;i++){
+        for(let i=0; i<logoImageUrl.files.length;i++){
             const formData=new FormData();
             formData.append("companyID",companyID);
             formData.append("logoImageUrl",logoImageUrl.files[i]);
@@ -330,9 +320,65 @@ async function themhinhlogo(){
                 method:"POST",
                 body:formData
             });
+            // const data=await response.json();
+            // console.log(data);
+        }    
+        //--------------------------------------
+        const sliderImageUrl=document.getElementById("sliderImageUrl");
+        for(let i=0; i<sliderImageUrl.files.length;i++){
+            const formData=new FormData();
+            formData.append("companyID",companyID);
+            formData.append("sliderImageUrl",sliderImageUrl.files[i]);
+            //console.log(newImageUrl.files[i]);
+            const response=await fetch(`http://localhost:3000/admin/slider/add`,{
+                method:"POST",
+                body:formData
+            });
+            // const data=await response.json();
+            // console.log(data);
+        }        
+        // if(data!=null){
+        //     window.location.href="profileDN.html";
+        // }else{
+        //     alert("lol");
+        // }
+    } catch (error) {
+        console.log(error);
+    }
+    
+}
+async function themhinhlogo(){
+    try {
+        const companyID= await registerCompany();
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+async function themhinhslider(){
+    try {
+        const companyID= await registerCompany();
+        const sliderImageUrl=document.getElementById("sliderImageUrl");
+        for(let i=0; i<sliderImageUrl.files.length;i++){
+            const formData=new FormData();
+            formData.append("companyID",companyID);
+            formData.append("sliderImageUrl",sliderImageUrl.files[i]);
+            //console.log(newImageUrl.files[i]);
+            const response=await fetch(`http://localhost:3000/admin/slider/add`,{
+                method:"POST",
+                body:formData
+            });
             const data=await response.json();
+            console.log(data);
         }      
     } catch (error) {
         console.log(error);
     }
+}
+async function dangkydoanhnghiep(){
+    updateUserToDN();
+    window.location.href="profileDN.html";
+    // themhinhlogo();
+    // themhinhslider();
+   
 }

@@ -4,19 +4,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Modernize Free</title>
+  <title>HOTDEAL</title>
   <link rel="shortcut icon" type="image/png" href="images/logos/logo_hotdeal.png" />
   <link rel="stylesheet" href="../manager_superdeal_admin/css/styles.min.css" />
-
 </head>
 
 <body>
-  <!--  Body Wrapper -->
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
-    <!-- Sidebar Start -->
     <aside class="left-sidebar">
-      <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="index.html" class="text-nowrap logo-img">
@@ -26,31 +22,46 @@
             <i class="ti ti-x fs-8"></i>
           </div>
         </div>
-        <!-- Sidebar navigation-->
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
           <ul id="sidebarnav">
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">Home</span>
+              <span class="hide-menu">Trang chủ</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="authentication-admin.html" aria-expanded="false" style="background-color: #9d2124;">
+              <a class="sidebar-link" href="profileDN.html" aria-expanded="false" style="background-color: #9d2124;">
                 <span>
                   <i class="ti ti-layout-dashboard" style="color: white;"></i>
                 </span>
-                <span class="hide-menu" style="color: white;">Thông tin người dùng</span>
+                <span class="hide-menu" style="color: white;">Thông tin doanh nghiệp</span>
+              </a>
+              <a class="sidebar-link" href="managaVoucher.html" aria-expanded="false"
+                style="background-color: #9d2124;">
+                <span>
+                  <i class="ti ti-layout-dashboard" style="color: white;"></i>
+                </span>
+                <span class="hide-menu" style="color: white;">Quản lý voucher</span>
+              </a>
+              <a class="sidebar-link" href="managaVoucher.html" aria-expanded="false"
+                style="background-color: #9d2124;">
+                <span>
+                  <i class="ti ti-layout-dashboard" style="color: white;"></i>
+                </span>
+                <span class="hide-menu" style="color: white;">Quản lý bài viết</span>
+              </a>
+              <a class="sidebar-link" href="danhsachkhmuavoucher.html" aria-expanded="false"
+                style="background-color: #9d2124;">
+                <span>
+                  <i class="ti ti-layout-dashboard" style="color: white;"></i>
+                </span>
+                <span class="hide-menu" style="color: white;">Danh sách mua hàng</span>
               </a>
             </li>
-            </ul>
+          </ul>
         </nav>
-        <!-- End Sidebar navigation -->
       </div>
-      <!-- End Sidebar scroll-->
     </aside>
-    <!--  Sidebar End -->
-    <!--  Main wrapper -->
     <div class="body-wrapper">
-      <!--  Header Start -->
       <header class="app-header">
         <nav class="navbar navbar-expand-lg navbar-light">
           <ul class="navbar-nav">
@@ -76,19 +87,15 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-user fs-6"></i>
-                      <p class="mb-0 fs-3" id="ten_nv">My Profile</p>
+                    <a href="login.html" class="d-flex align-items-center gap-2 dropdown-item" id="login">
+                      <p class="mb-0 fs-3">Đăng nhập </p>
                     </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-mail fs-6"></i>
-                      <p class="mb-0 fs-3">My Account</p>
+                    <a href="index.html" class="d-flex align-items-center gap-2 dropdown-item" id="name_logout">
+                      <p class="mb-0 fs-3">Đăng xuất </p>
                     </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-list-check fs-6"></i>
-                      <p class="mb-0 fs-3">My Task</p>
+                    <a href="#" class="d-flex align-items-center gap-2 dropdown-item">
+                      <p class="mb-0 fs-3" id="name_login">Thông tin cá nhân</p>
                     </a>
-                    <a href="login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                   </div>
                 </div>
               </li>
@@ -96,23 +103,20 @@
           </div>
         </nav>
       </header>
-      <!--  Header End -->
       <div class="container-fluid">
         <div class="page-header">
-          <h4 style="color: #9d2124;">Thông tin người dùng</h4>
+          <div id="imglogo"></div>
+          <h4 style="color: #9d2124;margin: 20px 0;">Thông tin người dùng</h4>
           <div class="pd-20 card-box mb-30">
             <div class="pb-20 md-20">
               <form>
                 <div class="border border-dark">
                   <div class="row mx-2">
                     <div class="col-md-4">
-                      <label for="">Họ và tên</label>
+                      <label for="">Tên doanh nghiệp</label>
                     </div>
                     <div class="col-md-4">
                       <label for="">Số điện thoại</label>
-                    </div>
-                    <div class="col-md-4">
-                      <label for="">Ngày sinh</label>
                     </div>
                   </div>
                   <div class="row mx-2  mb-4">
@@ -120,12 +124,9 @@
                       <input type="text" class="form-control" name="name" id="name" value="">
                     </div>
                     <div class="col-md-4 mb-3">
-                      <input type="text" class="form-control" name="phone" id="phone" value="">
+                      <input type="text" class="form-control" name="phone" id="phone" value="" disabled="disabled">
                       <label id="thong_bao_sdt" for="exampleInputEmail1" class="form-label"
                         style="color: red;margin-left: 20px; " hidden>Không phải số điện thoại</label>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <input type="date" class="form-control" name="birthday" id="birthday">
                     </div>
                   </div>
                   <div class="row mx-2">
@@ -135,26 +136,24 @@
                     <div class="col-md-4">
                       <label for="">Địa chỉ</label>
                     </div>
-                    <div class="col-md-4" style="width: auto;">
-                      <label for="" >Giới tính</label>
-                    </div>
                   </div>
                   <div class="row mx-2  mb-4">
                     <div class="col-md-4 mb-3">
-                      <input type="email" class="form-control" name="email" id="email" value="">
+                      <input type="email" class="form-control" name="email" id="email" value="" disabled="disabled">
                     </div>
                     <div class="col-md-4 mb-3">
                       <input type="text" class="form-control" name="address" id="address" value="">
                     </div>
-                    <div class="col-md-4" id="gender">
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="male" id="male" value="1" checked required>
-                        <label class="form-check-label" for="gender_male">Nam</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="male" id="male" value="2" required>
-                        <label class="form-check-label" for="gender_female">Nữ</label>
-                      </div>
+                  </div>
+                  <div class="row mx-2">
+                    <div class="col-md-4">
+                      <label for="">Mã số thuế</label>
+                    </div>
+                  </div>
+                  <div class="row mx-2  mb-4">
+                    <div class="col-md-4 mb-3">
+                      <input type="text" class="form-control" name="masothue" id="masothue" value=""
+                        disabled="disabled">
                     </div>
                   </div>
                   <label id="thong_bao_dn" for="exampleInputEmail1" class="form-label"
@@ -163,23 +162,44 @@
                 </div>
               </form>
             </div>
-
+            <h4 style="color: #9d2124;margin:20px 0;">Thông tin công ty doanh nghiệp</h4>
+            <div class="pb-20 md-20">
+              <form>
+                <div class="border border-dark">
+                  <div class="row mx-2">
+                    <div class="col-md-4">
+                      <label for="">Tên công ty</label>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="">Địa chỉ công ty</label>
+                    </div>
+                  </div>
+                  <div class="row mx-2  mb-4">
+                    <div class="col-md-4 mb-3">
+                      <input type="text" class="form-control" name="companyName" id="companyName" value="">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <input type="text" class="form-control" name="companyAddress" id="companyAddress" value="">
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
             <div class="row" style="margin-top: 5%;">
-            <div class=" col-md-4" >
-              <a class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" onclick="update()" style="background-color: #9d2124;">Sửa</a>
-            </div>
-            <div class=" col-md-4" >
-              <a href="managaVoucher.html" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2"  style="background-color: #9d2124;">Quản lý doanh nghiệp</a>
+              <div class=" col-md-4">
+                <a class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" onclick="suathongtindn()"
+                  style="background-color: #9d2124;">Sửa thông tin doanh nghiệp</a>
+              </div>
+              <div class=" col-md-4">
+                <a class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" onclick="suathongtincty()"
+                  style="background-color: #9d2124;">Sửa thông tin công ty</a>
+              </div>
             </div>
           </div>
-          </div>
-
         </div>
       </div>
     </div>
   </div>
-
-
   <script src="../manager_superdeal_admin/libs/jquery/dist/jquery.min.js"></script>
   <script src="../manager_superdeal_admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../manager_superdeal_admin/js/sidebarmenu.js"></script>
@@ -187,16 +207,8 @@
   <script src="../manager_superdeal_admin/libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="../manager_superdeal_admin/libs/simplebar/dist/simplebar.js"></script>
   <script src="../manager_superdeal_admin/js/dashboard.js"></script>
+  <script src="js/my.js"></script>
   <script src="API/user/showUpdateDN.js"></script>
-  <script src="API/user/showUpdateKH.js"></script>
- 
-  <!-- <script src="../../javascript/admin/themnv.js"></script>
-  <script src="../../javascript//admin/hienChucVu.js"></script>
-  <script src="../../javascript/admin/hienNVSua.js"></script> -->
-  <!-- <script>
-    document.getElementById("ten_nv").value = localStorage.getItem("name");
-
-  </script> -->
 </body>
 
 </html>

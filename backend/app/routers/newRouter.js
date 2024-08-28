@@ -17,9 +17,10 @@ route.use(express.json());
 
 route.get("/admin/new/getall",newController.get_all);
 route.get("/admin/new/getid/:voucherID",newController.get_id);
+route.get("/admin/new/getidkh/:voucherID",newController.get_id_kh);
 route.get("/admin/new/getiddetail/:newID",newController.get_id_details);
 route.post("/admin/new/add",newController.add);
 route.put("/admin/new/update",newController.update);
-route.delete("/admin/new/delete/:newID",newController.remove);
+route.delete("/admin/new/delete/:voucherID",newController.remove);
 
 module.exports = route;

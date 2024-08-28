@@ -20,6 +20,6 @@ route.get("/admin/voucherimage/getid/:voucherID",voucherImageController.get_id);
 route.get("/admin/voucherimage/getallid/:voucherID",voucherImageController.get_all_id);
 route.post("/admin/voucherimage/add",upload.single('voucherImageUrl'),voucherImageController.add);
 route.put("/admin/voucherimage/update", upload.single('voucherImageUrl'), voucherImageController.update);
-route.delete("/admin/voucherimage/delete/:voucherImageID",voucherImageController.remove);
+route.delete("/admin/voucherimage/delete/:voucherID",voucherImageController.remove);
 
 module.exports = route;

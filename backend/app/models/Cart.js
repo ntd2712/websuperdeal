@@ -3,8 +3,6 @@ const Cart=function(cart){
     this.cartID=cart.cartID;
     this.userID=cart.userID;
     this.quantityTotal=cart.quantityTotal;
-    this.provisionalTotal=cart.provisionalTotal;
-    this.shipPrice=cart.shipPrice;
     this.total=cart.total;
 };
 Cart.create=function(data,result){

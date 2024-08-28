@@ -4,19 +4,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Modernize Free</title>
+  <title>HOTDEAL</title>
   <link rel="shortcut icon" type="image/png" href="images/logos/logo_hotdeal.png" />
   <link rel="stylesheet" href="../manager_superdeal_admin/css/styles.min.css" />
-
 </head>
 
 <body>
-  <!--  Body Wrapper -->
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
-    <!-- Sidebar Start -->
     <aside class="left-sidebar">
-      <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="index.html" class="text-nowrap logo-img">
@@ -26,12 +22,11 @@
             <i class="ti ti-x fs-8"></i>
           </div>
         </div>
-        <!-- Sidebar navigation-->
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
           <ul id="sidebarnav">
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">Home</span>
+              <span class="hide-menu">Trang chủ</span>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="profileKH.html" aria-expanded="false" style="background-color: #9d2124;">
@@ -40,23 +35,19 @@
                 </span>
                 <span class="hide-menu" style="color: white;">Thông tin người dùng</span>
               </a>
-              <a class="sidebar-link" href="quanlydonhangKH.html" aria-expanded="false" style="background-color: #9d2124;">
+              <a class="sidebar-link" href="quanlydonhangKH.html" aria-expanded="false"
+                style="background-color: #9d2124;">
                 <span>
                   <i class="ti ti-layout-dashboard" style="color: white;"></i>
                 </span>
                 <span class="hide-menu" style="color: white;">Quản lý đơn hàng</span>
               </a>
             </li>
-            </ul>
+          </ul>
         </nav>
-        <!-- End Sidebar navigation -->
       </div>
-      <!-- End Sidebar scroll-->
     </aside>
-    <!--  Sidebar End -->
-    <!--  Main wrapper -->
     <div class="body-wrapper">
-      <!--  Header Start -->
       <header class="app-header">
         <nav class="navbar navbar-expand-lg navbar-light">
           <ul class="navbar-nav">
@@ -102,10 +93,17 @@
           </div>
         </nav>
       </header>
-      <!--  Header End -->
       <div class="container-fluid">
         <div class="page-header">
-          <h4 style="color: #9d2124;">Quản lý đơn hàng</h4>
+          <div style="display: flex;">
+            <h4 style="color: #9d2124;">Quản lý đơn hàng</h4>
+            <input id="submit" name="submit" type="submit" class="btn btn-info"
+              style="background-color: #9d2124;margin-left: 200px;"
+              onclick="if(confirm('Bạn có chắc muốn hủy đơn?')) { huydon(); } return false;" value="Hủy đơn" />
+            <a href="#" class="primary-btn cart-btn"
+              style="margin-left: 250px;border: 1px solid black;width: 100px;text-align: center;padding-top: 5px;background-color: #9d2124;color: white;border-radius: 5px;"
+              onclick="clickCheckBoxDetailsOrder()">Xem</a>
+          </div>
           <div class="pb-20">
             <form method="GET" action="">
               <table class="data-table table stripe hover nowrap table-nvqldh">
@@ -113,25 +111,20 @@
                   <tr>
                     <th class="table-plus datatable-nosort">ID</th>
                     <th>Ngày đặt</th>
+                    <th>Tổng cộng</th>
                     <th>Trạng thái</th>
-                    
                   </tr>
                 </thead>
                 <tbody>
-  
                 </tbody>
               </table>
-  
             </form>
           </div>
-          </div>
-
         </div>
       </div>
     </div>
   </div>
-
-
+  </div>
   <script src="../manager_superdeal_admin/libs/jquery/dist/jquery.min.js"></script>
   <script src="../manager_superdeal_admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../manager_superdeal_admin/js/sidebarmenu.js"></script>
@@ -142,14 +135,6 @@
   <script src="API/user/showUpdateDN.js"></script>
   <script src="API/user/showUpdateKH.js"></script>
   <script src="API/user/order/hiendondathang.js"></script>
- 
-  <!-- <script src="../../javascript/admin/themnv.js"></script>
-  <script src="../../javascript//admin/hienChucVu.js"></script>
-  <script src="../../javascript/admin/hienNVSua.js"></script> -->
-  <!-- <script>
-    document.getElementById("ten_nv").value = localStorage.getItem("name");
-
-  </script> -->
 </body>
 
 </html>

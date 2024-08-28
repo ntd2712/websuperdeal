@@ -3,6 +3,7 @@ const Order=function(order){
     this.orderID=order.orderID;
     this.userID=order.userID;
     this.dateOrder=order.dateOrder;
+    this.amount=order.amount;
     this.statusOrder=order.statusOrder;
 }
 Order.create=function(data,result){
@@ -23,9 +24,17 @@ Order.getAll=function(result){
         }
     })
 }
-
+Order.getalluserbought=function(roleID,result){
+    db.query("SELECT u.name, v.voucherID, v.voucherCategoryID, v.nameVoucher, od.price, od.quantity, od.total, v.startDate, v.endDate, v.statusvoucher, o.orderID, o.dateOrder FROM user u JOIN role r ON u.roleID = r.roleID JOIN orders o ON u.userID = o.userID JOIN order_details od ON o.orderID = od.orderID JOIN voucher v ON od.voucherID = v.voucherID WHERE  r.roleID = 2 ORDER BY o.dateOrder ASC",roleID,function(err,orders){
+        if(err){
+            result(err);
+        }else{
+            result(orders);
+        }
+    });
+};
 Order.getById=function(userID,result){
-    db.query("SELECT*FROM orders join user on orders.userID=user.userID where orders.userID=?",userID,function(err,orders){
+    db.query("SELECT*FROM orders join user on orders.userID=user.userID where orders.userID=? ORDER BY orders.dateOrder DESC",userID,function(err,orders){
         if(err){
             result(err);
         }else{

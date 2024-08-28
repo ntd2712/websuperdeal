@@ -24,9 +24,9 @@ Logo.getAll=function(result){
     });
 };
 Logo.getById=function(logoID,result){
-    db.query("SELECT*FROM logo join company on logo.companyID=company.companyID WHERE companyID=?",logoID,function(err,logo){
+    db.query("SELECT*FROM logo join company on logo.companyID=company.companyID WHERE company.companyName=?",logoID,function(err,logo){
         if(err){
-            result(null);
+            result(err);
         }else{
             result(logo[0]);
         }

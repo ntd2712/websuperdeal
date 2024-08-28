@@ -33,4 +33,26 @@ Company.getById=function(companyID,result){
         }
     });
 };
+Company.getByCompanyForUser=function(userID,result){
+    db.query("SELECT * FROM company join user on company.userID=user.userID WHERE user.userID=?",userID,function(err,company){
+        if(err){
+            result(err);
+        }else{
+            result(company[0]);
+        }
+    });
+};
+Company.updateCompany=function(data,result){
+    db.query("UPDATE company SET companyName=?,companyAddress=? WHERE userID=?",[
+        data.companyName,
+        data.companyAddress,
+        data.userID
+    ], function(err,company){
+        if(err){
+            result(err);
+        }else{
+            result(data);
+        }
+    })
+}
 module.exports=Company;

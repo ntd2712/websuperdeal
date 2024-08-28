@@ -24,16 +24,16 @@ NewImage.getAll=function(result){
     });
 };
 NewImage.getById=function(newID,result){
-    db.query("SELECT*FROM new_image join new on new_image.newID=new.newID WHERE newID=?",newID,function(err,news){
+    db.query("SELECT*FROM new_image WHERE newID=?",newID,function(err,news){
         if(err){
-            result(null);
+            result(err);
         }else{
-            result(news[0]);
+            result(news);
         }
     });
 };
 NewImage.delete=function(id, result){
-    db.query("DELETE FROM new_image WHERE newImageID=?",id,function(err,newimage){
+    db.query("DELETE FROM new_image WHERE newID=?",id,function(err,newimage){
         if(err){
             result(null);
         }else{

@@ -6,9 +6,20 @@ async function getDataDN() {
     // Tham chiếu đến table
     const tableBody = document.querySelector("table.table-nvqldh tbody");
     tableBody.innerHTML = "";
-    //console.log(data);
-    //console.log(tableBody);
-    data.forEach((user) => {
+    const pagination = document.querySelector(".pagination");
+        const prevButton = pagination.querySelector(".prev");
+        const nextButton = pagination.querySelector(".next");
+        const pageInfo = pagination.querySelector(".page-info");
+        const itemsPerPage = 4;
+        let currentPage = 1;
+        let totalPages = Math.ceil(data.length / itemsPerPage);
+        function renderPage(page) {
+          const start = (page - 1) * itemsPerPage;
+          const end = start + itemsPerPage;
+          const pageData = data.slice(start, end);
+    
+          tableBody.innerHTML = "";
+          pageData.forEach((user) => {
       const row = document.createElement("tr");
       row.innerHTML = `
         <td>${user.userID}</td>
@@ -16,7 +27,7 @@ async function getDataDN() {
         <td>${user.password}</td>
         <td>${user.email}</td>
         <td>${user.name}</td>
-        <td>${user.birthday}</td>
+        <td>${new Date(user.birthday).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' })}</td>
         <td>${user.address}</td>
         <td>${user.gender}</td>
         <td>${user.rewardPoint}</td>
@@ -31,6 +42,23 @@ async function getDataDN() {
       tableBody.appendChild(row);
       //console.log(user.phone);
     });
+    pageInfo.textContent = `Trang ${currentPage}/${totalPages}`;
+  }
+  renderPage(currentPage);
+
+  prevButton.addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderPage(currentPage);
+    }
+  });
+
+  nextButton.addEventListener("click", () => {
+    if (currentPage < totalPages) {
+      currentPage++;
+      renderPage(currentPage);
+    }
+  });
   } catch (error) {
     console.error(error);
   }

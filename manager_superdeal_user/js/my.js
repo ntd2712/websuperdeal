@@ -74,8 +74,10 @@
     name.addEventListener("click", () => {
       if (localStorage.getItem("roleID") == "3") {
         window.location.href = "profileDN.html";
-      } else {
+      } else if(localStorage.getItem("roleID") == "2"){
         window.location.href = "profileKH.html";
+      }else{
+        window.location.href = "authentication-admin.html";
       }
     });
   

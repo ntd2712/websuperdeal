@@ -4,12 +4,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Modernize Free</title>
+  <title>HOTDEAL</title>
   <link rel="shortcut icon" type="image/png" href="images/logos/logo_hotdeal.png" />
   <link rel="stylesheet" href="../manager_superdeal_admin/css/styles.min.css" />
-
   <style>
-    #img_voucher{
+    #img_voucher {
       width: 250px;
       height: auto;
       margin: 10px;
@@ -18,12 +17,9 @@
 </head>
 
 <body>
-  <!--  Body Wrapper -->
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
-    <!-- Sidebar Start -->
     <aside class="left-sidebar">
-      <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="index.html" class="text-nowrap logo-img">
@@ -33,7 +29,6 @@
             <i class="ti ti-x fs-8"></i>
           </div>
         </div>
-        <!-- Sidebar navigation-->
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
           <ul id="sidebarnav">
             <li class="nav-small-cap">
@@ -41,23 +36,19 @@
               <span class="hide-menu">Trang chủ</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="authentication-admin.html" aria-expanded="false" style="background-color: #9d2124;">
+              <a class="sidebar-link" href="managaVoucher.html" aria-expanded="false"
+                style="background-color: #9d2124;">
                 <span>
                   <i class="ti ti-layout-dashboard" style="color: white;"></i>
                 </span>
                 <span class="hide-menu" style="color: white;">Quản lý voucher</span>
               </a>
             </li>
-            </ul>
+          </ul>
         </nav>
-        <!-- End Sidebar navigation -->
       </div>
-      <!-- End Sidebar scroll-->
     </aside>
-    <!--  Sidebar End -->
-    <!--  Main wrapper -->
     <div class="body-wrapper">
-      <!--  Header Start -->
       <header class="app-header">
         <nav class="navbar navbar-expand-lg navbar-light">
           <ul class="navbar-nav">
@@ -83,19 +74,15 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-user fs-6"></i>
-                      <p class="mb-0 fs-3" id="ten_nv">My Profile</p>
+                    <a href="login.html" class="d-flex align-items-center gap-2 dropdown-item" id="login">
+                      <p class="mb-0 fs-3">Đăng nhập </p>
                     </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-mail fs-6"></i>
-                      <p class="mb-0 fs-3">My Account</p>
+                    <a href="index.html" class="d-flex align-items-center gap-2 dropdown-item" id="name_logout">
+                      <p class="mb-0 fs-3">Đăng xuất </p>
                     </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-list-check fs-6"></i>
-                      <p class="mb-0 fs-3">My Task</p>
+                    <a href="#" class="d-flex align-items-center gap-2 dropdown-item">
+                      <p class="mb-0 fs-3" id="name_login">Thông tin cá nhân</p>
                     </a>
-                    <a href="login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                   </div>
                 </div>
               </li>
@@ -103,12 +90,10 @@
           </div>
         </nav>
       </header>
-      <!--  Header End -->
       <div class="container-fluid">
         <div class="page-header">
           <h4 style="color: #9d2124;">Thông tin voucher</h4>
           <div class="pd-20 card-box mb-30">
-            <!--Thông tin chi tiết voucher-->
             <div class="pb-20 md-20">
               <form>
                 <div class="border border-dark">
@@ -141,7 +126,7 @@
                       <label for="">Giá</label>
                     </div>
                     <div class="col-md-4">
-                      <label for="">Giá giảm</label>
+                      <label for="">Chiết khấu</label>
                     </div>
                     <div class="col-md-4">
                       <label for="">Giá khuyến mãi</label>
@@ -202,63 +187,48 @@
                       <input type="text" class="form-control" name="statusvoucher" id="statusvoucher" value="">
                     </div>
                   </div>
-                  
-                  
                   <label id="thong_bao_dn" for="exampleInputEmail1" class="form-label"
                     style="color: red;margin-left: 20px; " hidden>Điền
                     đầy đủ thông tin</label>
                 </div>
               </form>
-              <div id="imglist" ></div>
+              <div id="imglist"></div>
             </div>
-          <!--Thông tin chi tiết bài viết-->
-          <h4 style="color: #9d2124; margin-top: 5%;">Thông tin bài viết</h4>
-          <div class="pb-20" style="border-top: 1px solid black;">
-            <form method="GET" action="">
-              <table class="data-table table stripe hover nowrap table-nvqldh">
-                <thead>
-                  <tr>
-                    <th class="table-plus datatable-nosort">Mã bài viết</th>
-                    <th>Tiêu đề</th>
-                    <th>Ngày đăng</th>
-                    <th>Nội dung</th>
-                  </tr>
-                </thead>
-                <tbody>
-  
-                </tbody>
-              </table>
-  
-            </form>
-          </div>
-                
-                
-                <label id="thong_bao_dn" for="exampleInputEmail1" class="form-label"
-                  style="color: red;margin-left: 20px; " hidden>Điền
-                  đầy đủ thông tin</label>
-              </div>
-            </form>
-            <div id="imglist" ></div>
-          </div>
-            <div class="row" style="margin-top: 5%;">
-            <div class=" col-md-4" >
-              <a class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" onclick="update()" style="background-color: #9d2124;">Sửa</a>
+            <h4 style="color: #9d2124; margin-top: 5%;">Thông tin bài viết</h4>
+            <div class="pb-20" style="border-top: 1px solid black;">
+              <form method="GET" action="">
+                <table class="data-table table stripe hover nowrap table-nvqldh">
+                  <thead>
+                    <tr>
+                      <th class="table-plus datatable-nosort">Mã bài viết</th>
+                      <th>Tiêu đề</th>
+                      <th>Ngày đăng</th>
+                      <th>Nội dung</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </form>
             </div>
-            <div class=" col-md-4" >
-              <a class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" onclick="clickCheckBoxDetailsNew()" style="background-color: #9d2124;">Xem</a>
-            </div>
-            <div class=" col-md-4" >
-              <a class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" href="managaVoucher.html" style="background-color: #9d2124;">Xóa</a>
-            </div>
+            <label id="thong_bao_dn" for="exampleInputEmail1" class="form-label" style="color: red;margin-left: 20px; "
+              hidden>Điền
+              đầy đủ thông tin</label>
           </div>
+          </form>
+          <div id="imglist"></div>
+        </div>
+        <div class="row" style="margin-top: 5%;">
+          <div class=" col-md-4">
+            <a class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" onclick="clickCheckBoxDetailsNew()"
+              style="background-color: #9d2124;">Xem</a>
           </div>
-
         </div>
       </div>
     </div>
   </div>
-
-
+  </div>
+  </div>
   <script src="../manager_superdeal_admin/libs/jquery/dist/jquery.min.js"></script>
   <script src="../manager_superdeal_admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../manager_superdeal_admin/js/sidebarmenu.js"></script>
@@ -266,17 +236,8 @@
   <script src="../manager_superdeal_admin/libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="../manager_superdeal_admin/libs/simplebar/dist/simplebar.js"></script>
   <script src="../manager_superdeal_admin/js/dashboard.js"></script>
-  <!-- <script src="API/user/showUpdateDN.js"></script>
-  <script src="API/user/showUpdateKH.js"></script> -->
- <script src="./API/user/voucher/hienchitietvoucher.js"></script>
-
-  <!-- <script src="../../javascript/admin/themnv.js"></script>
-  <script src="../../javascript//admin/hienChucVu.js"></script>
-  <script src="../../javascript/admin/hienNVSua.js"></script> -->
-  <!-- <script>
-    document.getElementById("ten_nv").value = localStorage.getItem("name");
-
-  </script> -->
+  <script src="js/my.js"></script>
+  <script src="./API/user/voucher/hienchitietvoucher.js"></script>
 </body>
 
 </html>

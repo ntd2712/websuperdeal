@@ -51,6 +51,15 @@ New.getById=function(voucherID,result){
         }
     });
 };
+New.getByIdNewKH=function(voucherID,result){
+    db.query("SELECT*FROM new join voucher on voucher.voucherID=new.voucherID WHERE voucher.voucherID=? ORDER BY datePost DESC",voucherID,function(err,news){
+        if(err){
+            result(err);
+        }else{
+            result(news[0]);
+        }
+    });
+};
 New.getByIdDetails=function(newID,result){
     db.query("SELECT*FROM new join new_image on new.newID=new_image.newID WHERE new_image.newID=?",newID,function(err,news){
         if(err){
@@ -61,7 +70,7 @@ New.getByIdDetails=function(newID,result){
     });
 };
 New.delete=function(id, result){
-    db.query("DELETE FROM new WHERE newID=?",id,function(err,news){
+    db.query("DELETE FROM new WHERE voucherID=?",id,function(err,news){
         if(err){
             result(null);
         }else{

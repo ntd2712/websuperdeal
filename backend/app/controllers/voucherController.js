@@ -1,11 +1,16 @@
 const {request}=require("express");
-const Voucher=require("../models/voucher");
+const Voucher=require("../models/Voucher");
 exports.get_all=function(req,res){
     Voucher.getAll(function(data){
         res.send(data);
         // console.log(data);
-    });
-    
+    });  
+};
+exports.get_all8=function(req,res){
+    Voucher.getAllLimit8(function(data){
+        res.send(data);
+        // console.log(data);
+    });  
 };
 exports.add=function(req,res){
     var data=req.body;
@@ -41,3 +46,20 @@ exports.timTheoTenVoucher=function(req,res){
         res.send(response);
     })
 }
+exports.getAllVoucherTheoDanhmuc=function(req,res){
+    Voucher.getAllVoucherTheoDanhmuc(req.params.nameVoucherCategory,function(response){
+        res.send(response);
+    })
+};
+exports.updateStatusVoucher=function(req,res){
+    var data=req.body;
+    Voucher.updateStatusVoucher(data,function(response){
+      res.send(response);
+    })
+  }
+  exports.updateVoucher=function(req,res){
+    var data=req.body;
+    Voucher.updateVoucher(data,function(response){
+      res.send(response);
+    })
+  }

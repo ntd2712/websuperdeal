@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Modernize Free</title>
+  <title>HOTDEAL DASHBOARD</title>
   <link rel="shortcut icon" type="image/png" href="images/logos/logo_hotdeal.png" />
   <link rel="stylesheet" href="css/styles.min.css" />
   <link rel="stylesheet" href="css/search.css">
@@ -32,7 +32,7 @@
           <ul id="sidebarnav">
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">Home</span>
+              <span class="hide-menu">Trang chủ</span>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="authentication-admin.html" aria-expanded="false" style="background-color: #9d2124;">
@@ -58,6 +58,18 @@
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
                 <span class="hide-menu" >Quản lý Loại</span>
+              </a>
+              <a class="sidebar-link" href="authentication-quanlyhinh.html" aria-expanded="false" style="background-color: #9d2124;">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu" >Danh sách hình voucher</span>
+              </a>
+              <a class="sidebar-link" href="authentication-quanlyvoucher.html" aria-expanded="false" style="background-color: #9d2124;">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu" >Danh sách voucher</span>
               </a>
             </li>
             </ul>
@@ -92,27 +104,12 @@
                       <a style="background-color: #9d2124;" onclick="clickButtonThemCategory()" class="btn btn-info">Thêm</a>
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <!-- <div class="col-md-4">
                     <div class="d-flex" style="width: 400px;">
                       <a style="background-color: #9d2124;" onclick="clickButtonCapnhatCategory()" class="btn btn-info">Cập nhật</a>
                     </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="d-flex" style="width: 400px;">
-                      <input id="submit" name="submit" type="submit" class="btn btn-info" style="background-color: #9d2124;"
-                        onclick="if(confirm('Bạn có chắc muốn xóa')) { xoaLoai(); } return false;"
-                        value=" Xóa" />
-                    </div>
-                  </div>
-                  <!-- <div class="col-md-4">
-                    <div class="search-container">
-                      <form action="/action_page.php" method="POST" class="sign-up-form">
-                        <input type="text" placeholder="Search.." name="search" id="search">
-                        <button type="submit" style="border-color: white; background-color: #9d2124; height: 30px; width: 40px;"><i class="gg-search" style="border-color: white;"></i></button>
-                      </form>
-                    </div>
-                    
                   </div> -->
+                  
                 </div>
             </li>
           </ul>
@@ -121,23 +118,21 @@
               <li class="nav-item dropdown">
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                   aria-expanded="false">
-                  <img src="images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                  <img src="../manager_superdeal_admin/images/profile/user-1.jpg" alt="" width="35" height="35"
+                    class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-user fs-6"></i>
-                      <p class="mb-0 fs-3" id="ten_nv">My Profile</p>
+                    <a href="login.html" class="d-flex align-items-center gap-2 dropdown-item" id="login">
+                      <p class="mb-0 fs-3">Đăng nhập </p>
                     </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-mail fs-6"></i>
-                      <p class="mb-0 fs-3">My Account</p>
+                    <a href="index.html" class="d-flex align-items-center gap-2 dropdown-item" id="name_logout">
+                        <p class="mb-0 fs-3">Đăng xuất </p>
+                      </a>
+                    <a href="#" class="d-flex align-items-center gap-2 dropdown-item">
+                      <p class="mb-0 fs-3" id="name_login">Thông tin cá nhân</p>
                     </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-list-check fs-6"></i>
-                      <p class="mb-0 fs-3">My Task</p>
-                    </a>
-                    <a href="index.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                    
                   </div>
                 </div>
               </li>
@@ -172,13 +167,10 @@
 
           </form>
         </div>
-      </div>
-      <!--  ------------------------------------------------------------- -->
-      
-      <!--  ------------------------------------------------------------- -->
-      
+      </div>     
     </div>
   </div>
+
 
   <script src="libs/jquery/dist/jquery.min.js"></script>
   <script src="libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -187,6 +179,7 @@
   <script src="libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="libs/simplebar/dist/simplebar.js"></script>
   <script src="js/dashboard.js"></script>
+  <script src="../manager_superdeal_user/js/my.js"></script>
   <script src="./API/admin/category/hienloai.js"></script>
   <script src="./API/admin/category/themloai.js"></script>
   <!-- <script src="../../javascript/admin/hienNhanVien.js"></script>
@@ -202,6 +195,7 @@
         getDataTim(); // gọi hàm xử lý submit form
     });
 </script> -->
+
   <script>
     document.getElementById("ten_nv").innerHTML = localStorage.getItem("name");
   </script>

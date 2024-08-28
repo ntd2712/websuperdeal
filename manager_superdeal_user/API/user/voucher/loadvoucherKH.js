@@ -1,6 +1,6 @@
 async function loadvoucherKH() {
   try {
-    const response = await fetch(`http://localhost:3000/admin/voucher/getall`);
+    const response = await fetch(`http://localhost:3000/admin/voucher/getall8`);
     const itemData = await response.json();
     console.log(itemData);
   //  const newValuePercent=itemData.percent*100;
@@ -10,6 +10,9 @@ async function loadvoucherKH() {
     
     // Function to create a new item
     async function createNewItem(itemData) {
+      if(itemData.statusvoucher==="Hết hạn sử dụng"){
+        return null;
+      }
       const responseimg = await fetch(
         `http://localhost:3000/admin/voucherimage/getid/${itemData.voucherID}`
       );
@@ -56,7 +59,9 @@ async function loadvoucherKH() {
     // Add all items to the parent element
     for (const item of itemData) {
       const newItem = await createNewItem(item);
-      parentElement.appendChild(newItem);
+      if (newItem !== null) {
+        parentElement.appendChild(newItem);
+      }
     }
     //------du
     const xemNgayButtons = parentElement.querySelectorAll('a[href="#"]');
@@ -75,21 +80,25 @@ async function loadvoucherKH() {
 }
 async function timtheoten(){
   try {
-    const nameVoucher=document.getElementById("searchNameVoucher");
+    const nameVoucher=document.getElementById("searchNameVoucher").value;
   const response=await fetch(`http://localhost:3000/user/voucher/searchName/${nameVoucher}`);
   const data=await response.json();
+  console.log(data);
   if(data==null){
     alert("Không tìm thấy sản phẩm");
   }else{
     const parentElement = document.querySelector(".row.featured__filter");
-    
+    parentElement.innerHTML="";
     // Function to create a new item
     async function createNewItem(data) {
+      if(data.statusvoucher==="Hết hạn sử dụng"){
+        return null;
+      }
       const responseimg = await fetch(
         `http://localhost:3000/admin/voucherimage/getid/${data.voucherID}`
       );
       const dataimg = await responseimg.json();
-     console.log(dataimg.voucherImageUrl);
+     //console.log(dataimg.voucherImageUrl);
     //   const srcimg="../backend/uploads/voucherimage/"+dataimg.voucherImageUrl
     //   console.log(srcimg)
       // Create the necessary HTML elements
@@ -130,7 +139,9 @@ async function timtheoten(){
     // Add all items to the parent element
     for (const item of data) {
       const newItem = await createNewItem(item);
-      parentElement.appendChild(newItem);
+      if (newItem !== null) {
+        parentElement.appendChild(newItem);
+      }
     }
     //------du
     const xemNgayButtons = parentElement.querySelectorAll('a[href="#"]');
@@ -139,8 +150,8 @@ async function timtheoten(){
         event.preventDefault();
         const idVoucherElement = button.closest('.featured__item').querySelector('.idvoucher');
         const idVoucher = idVoucherElement.textContent;
-        const url = `shop-details.html?array=${idVoucher}`; // replace with your desired URL
-        window.location.href = url;
+        window.location.href = `shop-details.html?array=${idVoucher}`; // replace with your desired URL
+        
       });
     });
   }
@@ -149,5 +160,35 @@ async function timtheoten(){
   }
   
 }
-timtheoten();
+async function hiendanhsachdanhmuc(){
+  try {
+      const response = await fetch(`http://localhost:3000/admin/vouchercategory/getall`);
+      const data = await response.json();
+      console.log(data);
+      const listdanhmuc=document.getElementById("list_danhmuc");
+      listdanhmuc.innerHTML="";
+      data.forEach((item)=>{
+          const item_danhmuc = document.createElement("li");
+          const a_danhmuc = document.createElement("a");
+          
+          a_danhmuc.textContent = item.nameVoucherCategory; // Add this line
+          a_danhmuc.style.fontSize = "20px";
+          a_danhmuc.style.cursor="pointer";
+          a_danhmuc.style.color="#9d2124";
+          a_danhmuc.href="shop-grid.html";
+          a_danhmuc.addEventListener("click", async function() {
+              localStorage.setItem("danhmuc", item.nameVoucherCategory);
+              console.log(localStorage.getItem("danhmuc"));
+              laytatcavouchertheodanhmuc();
+            });
+          item_danhmuc.appendChild(a_danhmuc);
+          listdanhmuc.appendChild(item_danhmuc);
+      })
+   
+  } catch (error) {
+      console.log(error);
+  }  
+}
+
+hiendanhsachdanhmuc();
 loadvoucherKH();
